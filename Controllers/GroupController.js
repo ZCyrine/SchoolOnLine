@@ -31,6 +31,7 @@ module.exports = {
       }
     })
   },
+  //function find
   find : function (req, res) {
     Group.findById({_id: req.params.id}).populate('StudentModel', 'nom').exec( function (err, data) {
       if(err) {
@@ -44,6 +45,7 @@ module.exports = {
     })
 
   },
+  //function findall
   findall : function (req, res) {
     Group.find({}, function (err, data) {
       if(err) {
@@ -57,12 +59,14 @@ module.exports = {
     })
 
   },
+  //function update
   update  :function (req, res) {
     Group.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, group) {
       if (err) return next(err);
       res.send('udpated.');
     });
   },
+  //function push
   push : function (req , res) {
     Group.updateOne({_id : req.params.id}, {$push : { StudentModel : req.body.EtudiantModel}},
       function (err ,data) {
