@@ -38,7 +38,7 @@ module.exports = {
   delete: function (req,res) {
     Personne.findOneAndRemove({'_id' : req.params.id}, function (err,Personne){
       if(err) {
-        res.json({'state': 'no', 'msg': ' erreur'})
+        res.json({'state': 'no', 'msg': ' erreur'+ err })
       }
 
       else {
@@ -50,7 +50,7 @@ module.exports = {
   find : function (req, res) {
     Personne.findById({_id: req.params.id}, function (err, data) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       }
 
       else {
@@ -64,7 +64,7 @@ module.exports = {
   findall : function (req, res) {
     Personne.find({}, function (err, data) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       }
 
       else {
