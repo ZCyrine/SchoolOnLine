@@ -1,11 +1,16 @@
-//Les modules nodeJS
+// module nodejs
+//import express
 const express = require('express');
+//import mongoose
 const mongoose = require('mongoose');
+//require bodyParser
 var bodyParser = require('body-parser');
-var nodemailer = require('nodemailer');
-var morgan = require('morgan');
-var cors = require ('cors');
+//require multer for uplad files
 const multer = require('multer');
+//
+var morgan = require('morgan');
+
+const cors = require('cors');
 
 
 //router personne
@@ -105,6 +110,16 @@ app.use (function(req,err,res,next){
 })
 
 
+//upload files with multer
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/images/uploads')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+});
+var upload = multer({storage: storage});
 
 
 
