@@ -1,39 +1,40 @@
 const Group = require("../models/GroupModel");
 module.exports = {
-  create: function(req,res)
-  {
+  //function create
+  create: function(req,res) {
 
     const Group = new Group({
-      nom : req.body.nom
+      name: req.body.name
     })
 
     Group.save(function (err) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+        res.json({'state': 'no', 'msg': 'erreur'})
       }
 
       else {
-        res.json({'state': 'ok', 'msg': ''})
+        res.json({'state': 'ok', 'msg': 'successfully added'})
       }
 
 
     })
   },
+  //function delete
   delete: function (req,res) {
     Group.findOneAndRemove({'_id' : req.params.id}, function (err,Group){
       if(err) {
-        res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+        res.json({'state': 'no', 'msg': 'erreur'})
       }
 
       else {
-        res.json({'state': 'ok', 'msg': 'suppression avec succées'})
+        res.json({'state': 'ok', 'msg': ''})
       }
     })
   },
   find : function (req, res) {
     Group.findById({_id: req.params.id}).populate('EtudiantModel', 'nom').exec( function (err, data) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+        res.json({'state': 'no', 'msg': 'erreur'})
       }
 
       else {
