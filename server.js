@@ -11,7 +11,8 @@ var cors = require ('cors');
 
 //router personne
 const PersonneRouter = require('./Routers/PersonneRouter');
-
+//router role
+const RoleRouter = require('./Routers/RoleRouter');
 
 const db = require('./models/db');
 
@@ -52,6 +53,7 @@ app.use(bodyParser.json());
 app.use(morgan("dev"))
 
 app.use('/personne' , PersonneRouter);
+app.use('/role' , RoleRouter);
 
 
 // express doesn't consider not found 404 as an error so we need to handle 404 explicitly
@@ -73,7 +75,7 @@ app.use (function(req,err,res,next){
     }
     else(err.status===500)
     {
-      res.status(500).json({message:'Internal Server Error' });
+      res.status(500).json({message:'Internal Server Error' + err});
       next();
     }
 
@@ -91,7 +93,7 @@ app.use (function(req,err,res,next){
 
 
 //execution de server
-app.listen(3000,function () {
+app.listen(4000,function () {
   console.log("Bonjour");
 
 });
