@@ -1,5 +1,5 @@
 // import models
-const Personne = require("../models/");
+const Personne = require("../models/PersonneModel");
 //import bcrypt for incryption password
 const bcrypt = require('bcrypt');
 //import jsonwebtoken
