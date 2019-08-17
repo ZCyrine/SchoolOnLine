@@ -19,3 +19,4 @@ const teacherSchema = personne.discriminator('TeacherModel',mongoose.Schema(
     }],
   }))
 module.exports = mongoose.model("TeacherModel");
+
