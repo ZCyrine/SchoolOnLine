@@ -9,7 +9,7 @@ module.exports = {
 
     group.save(function (err) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       }
 
       else {
@@ -23,7 +23,7 @@ module.exports = {
   delete: function (req,res) {
     Group.findOneAndRemove({'_id' : req.params.id}, function (err,group){
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       }
 
       else {
@@ -34,7 +34,7 @@ module.exports = {
   find : function (req, res) {
     Group.findById({_id: req.params.id}).populate('StudentModel', 'nom').exec( function (err, data) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       }
 
       else {
@@ -47,7 +47,7 @@ module.exports = {
   findall : function (req, res) {
     Group.find({}, function (err, data) {
       if(err) {
-        res.json({'state': 'no', 'msg': ' erreur'})
+        res.json({'state': 'no', 'msg': ' erreur' + err})
       }
 
       else {
@@ -67,7 +67,7 @@ module.exports = {
     Group.updateOne({_id : req.params.id}, {$push : { StudentModel : req.body.EtudiantModel}},
       function (err ,data) {
         if(err) {
-          res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+          res.json({'state': 'no', 'msg': 'vous avez un erreur' + err})
         }
 
         else {

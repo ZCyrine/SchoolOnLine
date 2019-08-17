@@ -15,6 +15,16 @@ const PersonneRouter = require('./Routers/PersonneRouter');
 const RoleRouter = require('./Routers/RoleRouter');
 //router group
 const GroupRouter = require('./Routers/GroupRouter');
+//router course
+const CourseRouter = require('./Routers/CourseRouter');
+//router claim
+const ClaimRouter = require('./Routers/ClaimRouter');
+//router student
+const StudentRouter = require('./Routers/StudentRouter');
+//router Teacher
+const TeacherRouter = require('./Routers/TeacherRouter');
+//router Admin
+const AdminRouter = require('./Routers/AdminRouter');
 
 const db = require('./models/db');
 
@@ -57,6 +67,12 @@ app.use(morgan("dev"))
 app.use('/personne' , PersonneRouter);
 app.use('/role' , RoleRouter);
 app.use('/group' , GroupRouter);
+app.use('/admin' , AdminRouter);
+app.use('/student' , StudentRouter);
+app.use('/teacher' , TeacherRouter);
+app.use('/claim' , ClaimRouter);
+app.use('/course' , CourseRouter);
+
 
 // express doesn't consider not found 404 as an error so we need to handle 404 explicitly
 // handle 404 error

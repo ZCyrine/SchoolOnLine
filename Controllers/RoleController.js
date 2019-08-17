@@ -12,7 +12,7 @@ module.exports = {
 
     role.save(function (err) {
       if (err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur'+ err})
       } else {
         res.json({'state': 'ok', 'msg': 'successfully added'})
       }
@@ -24,7 +24,7 @@ module.exports = {
   delete: function (req, res) {
     Role.findOneAndRemove({'_id': req.params.id}, function (err, Role) {
       if (err) {
-        res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+        res.json({'state': 'no', 'msg': 'vous avez un erreur'+ err})
       } else {
         res.json({'state': 'ok', 'msg': 'successful removal'})
       }
@@ -34,7 +34,7 @@ module.exports = {
   find: function (req, res) {
     Role.findById({_id: req.params.id}, function (err, data) {
       if (err) {
-        res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+        res.json({'state': 'no', 'msg': 'vous avez un erreur' + err})
       } else {
         res.json({'state': 'ok', 'msg': 'Role found', data})
       }
@@ -46,7 +46,7 @@ module.exports = {
   findall: function (req, res) {
     Role.find({}, function (err, data) {
       if (err) {
-        res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+        res.json({'state': 'no', 'msg': 'vous avez un erreur' + err})
       } else {
         res.json({'state': 'ok', 'msg': 'Role found', data})
       }

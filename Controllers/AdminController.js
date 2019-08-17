@@ -15,6 +15,7 @@ module.exports = {
       email : req.body.email,
       datebirth: req.body.datebirth,
       phonenumber : req.body.phonenumber,
+      password: req.body.password,
       gender : req.body.gender,
       role: req.body.role
 
@@ -22,7 +23,7 @@ module.exports = {
     //save function
     admin.save(function (err) {
       if(err) {
-        res.json({'state': 'no', 'msg': ' erreur'})
+        res.json({'state': 'no', 'msg': ' erreur' + err})
       }
 
       else {
@@ -36,7 +37,7 @@ module.exports = {
   delete: function (req,res) {
     Admin.findOneAndRemove({'_id' : req.params.id}, function (err,Admin){
       if(err) {
-        res.json({'state': 'no', 'msg': ' erreur'})
+        res.json({'state': 'no', 'msg': ' erreur' + err})
       }
 
       else {
@@ -48,7 +49,7 @@ module.exports = {
   find : function (req, res) {
     Admin.findById({_id: req.params.id}, function (err, data) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       }
 
       else {
@@ -62,7 +63,7 @@ module.exports = {
   findall : function (req, res) {
     Admin.find({}, function (err, data) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' +err})
       }
 
       else {
