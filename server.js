@@ -6,6 +6,13 @@ var nodemailer = require('nodemailer');
 var morgan = require('morgan');
 var cors = require ('cors');
 
+
+
+
+//router personne
+const PersonneRouter = require('./Routers/PersonneRouter');
+
+
 const db = require('./models/db');
 
 
@@ -44,7 +51,7 @@ app.use(bodyParser.json());
 
 app.use(morgan("dev"))
 
-
+app.use('/personne' , PersonneRouter);
 
 
 // express doesn't consider not found 404 as an error so we need to handle 404 explicitly

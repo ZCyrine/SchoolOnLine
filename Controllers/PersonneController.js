@@ -1,6 +1,10 @@
 // import models
+<<<<<<< HEAD
 const Personne = require("../models/PersonneModel" +
   "");
+=======
+const Personne = require("../models/PersonneModel");
+>>>>>>> 094ff0f8a4dca736923ec43b2e01af53f981d476
 //import bcrypt for incryption password
 const bcrypt = require('bcrypt');
 //import jsonwebtoken
