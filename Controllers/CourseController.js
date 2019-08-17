@@ -32,7 +32,7 @@ module.exports = {
             description: req.body.description,
             duration: req.body.duration,
             date: req.body.duration,
-            file : req.body.file
+            file: req.file.originalname,
 
 
           })

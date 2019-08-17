@@ -22,7 +22,8 @@ const courseSchema = mongoose.Schema(
     },
     file : {
       type :String,
-      required : true
+      required : true,
+      trim :true
     }
   })
 module.exports = mongoose.model("Course",courseSchema);
