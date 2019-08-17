@@ -1,33 +1,36 @@
 // exporter model
-const Role = require("../models/Role");
+const Role = require("../models/RoleModel");
 
 module.exports = {
+  //function create
   create: function (req, res) {
 
-    const role = new Role({
-      nom: req.body.nom,
+    const Role = new Role({
+       name  : req.body.name,
 
     })
 
-    role.save(function (err) {
+    Role.save(function (err) {
       if (err) {
-        res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+        res.json({'state': 'no', 'msg': 'erreur'})
       } else {
-        res.json({'state': 'ok', 'msg': 'ajout avec succées'})
+        res.json({'state': 'ok', 'msg': 'successfully added'})
       }
 
 
     })
   },
+  //function delete
   delete: function (req, res) {
     Role.findOneAndRemove({'_id': req.params.id}, function (err, Role) {
       if (err) {
         res.json({'state': 'no', 'msg': 'vous avez un erreur'})
       } else {
-        res.json({'state': 'ok', 'msg': 'suppression avec succées'})
+        res.json({'state': 'ok', 'msg': 'successful removal'})
       }
     })
   },
+  //function find
   find: function (req, res) {
     Role.findById({_id: req.params.id}, function (err, data) {
       if (err) {
@@ -39,6 +42,7 @@ module.exports = {
     })
 
   },
+  //function findall
   findall: function (req, res) {
     Role.find({}, function (err, data) {
       if (err) {
@@ -50,6 +54,7 @@ module.exports = {
     })
 
   },
+  //function update
   update  :function (req, res) {
     Role.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, cour) {
       if (err) return next(err);
