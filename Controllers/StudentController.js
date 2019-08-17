@@ -19,7 +19,7 @@ module.exports = {
 
     })
 
-    Student.save(function (err) {
+    student.save(function (err) {
       if(err) {
         res.json({'state': 'no', 'msg': 'erreur'+err})
       }

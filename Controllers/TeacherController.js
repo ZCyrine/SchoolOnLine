@@ -22,7 +22,7 @@ module.exports = {
 
     teacher.save(function (err) {
       if(err) {
-        res.json({'state': 'no', 'msg': ' erreur'})
+        res.json({'state': 'no', 'msg': ' erreur' + err})
       }
 
       else {
@@ -35,7 +35,7 @@ module.exports = {
   delete: function (req,res) {
     Teacher.findOneAndRemove({'_id' : req.params.id}, function (err,Teacher){
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       }
 
       else {
@@ -44,9 +44,9 @@ module.exports = {
     })
   },
   findById : function (req, res) {
-    Teacher.findOne({_id: req.params.id}).populate({path: 'groupe', populate:{path: 'EtudiantModel'}}).exec( function (err, data) {
+    Teacher.findOne({_id: req.params.id}).populate({path: 'groupe', populate:{path: 'StudentModel'}}).exec( function (err, data) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       }
 
       else {
@@ -59,7 +59,7 @@ module.exports = {
   findall : function (req, res) {
     Teacher.find({}, function (err, data) {
       if(err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       }
 
       else {
@@ -70,16 +70,16 @@ module.exports = {
 
   },
   update  : function (req, res) {
-    GroupeModel.findByIdAndUpdate({_id : req.params.id}, {nom: req.body.nom },{prenom: req.body.prenom },{email: req.body.email },{date_naissance: req.body.date_naissance },{tel: req.body.tel },{salaire: req.body.salaire },{nbre_heure: req.body.nom } ,function (err, groupe) {
+    GroupModel.findByIdAndUpdate({_id : req.params.id}, {nom: req.body.nom },{prenom: req.body.prenom },{email: req.body.email },{date_naissance: req.body.date_naissance },{tel: req.body.tel },{salaire: req.body.salaire },{nbre_heure: req.body.nom } ,function (err, groupe) {
       if (err) return next(err);
       res.send('udpated.');
     });
   },
   push : function (req , res) {
-    Teacher.updateOne({_id: req.params.id}, {$push: {groupe: req.body.groupe}},
+    Teacher.updateOne({_id: req.params.id}, {$push: {group: req.body.group}},
       function (err, data) {
         if (err) {
-          res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+          res.json({'state': 'no', 'msg': 'vous avez un erreur' + err})
         } else {
           res.json({'state': 'ok', 'msg': 'teacher updated' +data})
         }
