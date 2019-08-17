@@ -16,4 +16,4 @@ const studentSchema = personne.discriminator('StudentModel',mongoose.Schema(
       trim : true
     }
   }))
-module.exports = mongoose.model("Student");
+module.exports = mongoose.model("StudentModel");
