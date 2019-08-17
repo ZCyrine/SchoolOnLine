@@ -27,7 +27,7 @@ module.exports = {
           };
 
 
-          const Course = new Course({
+          const course = new Course({
            title: req.body.title,
             description: req.body.description,
             duration: req.body.duration,
@@ -37,7 +37,7 @@ module.exports = {
 
           })
 
-          Course.save(function (err) {
+          course.save(function (err) {
             if (err) {
               res.json({'state': 'no', 'msg': 'erreur' + err})
             } else {
