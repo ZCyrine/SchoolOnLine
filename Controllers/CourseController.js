@@ -6,7 +6,7 @@ const Course = require("../models/CourseModel");
 const multer = require('multer');
 const fs = require('fs');
 ///create destination of file
-const upload = multer({dest: __dirname + '/uploads/photos'});
+const upload = multer({dest: __dirname + '/uploads/'});
 module.exports = {
   //function create
   create: function (req, res) {
