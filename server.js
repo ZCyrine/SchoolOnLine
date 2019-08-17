@@ -56,7 +56,7 @@ app.use(morgan("dev"))
 
 app.use('/personne' , PersonneRouter);
 app.use('/role' , RoleRouter);
-app.use('/group' , RoleRouter);
+app.use('/group' , GroupRouter);
 
 // express doesn't consider not found 404 as an error so we need to handle 404 explicitly
 // handle 404 error
