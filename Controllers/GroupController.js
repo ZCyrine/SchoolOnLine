@@ -68,7 +68,7 @@ module.exports = {
   },
   //function push
   push : function (req , res) {
-    Group.updateOne({_id : req.params.id}, {$push : { StudentModel : req.body.EtudiantModel}},
+    Group.updateOne({_id : req.params.id}, {$push : { Student : req.body.StudentModel}},
       function (err ,data) {
         if(err) {
           res.json({'state': 'no', 'msg': 'vous avez un erreur' + err})
