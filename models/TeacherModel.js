@@ -18,4 +18,4 @@ const teacherSchema = personne.discriminator('TeacherModel',mongoose.Schema(
       ref : "group"
     }],
   }))
-module.exports = mongoose.model("Teacher");
+module.exports = mongoose.model("TeacherModel");

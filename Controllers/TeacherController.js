@@ -12,9 +12,9 @@ module.exports = {
       tel : req.body.tel,
       password : req.body.password,
       role: req.body.role,
-      salaire: req.body.salaire,
-      nbre_heure: req.body.nbre_heure,
-      nbre_groupe:req.body.nbre_groupe
+      salary: req.body.salary,
+      nbrehour: req.body.nbrehour,
+      group:req.body.group
 
     })
 
