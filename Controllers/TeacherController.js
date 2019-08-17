@@ -2,6 +2,7 @@
 const Teacher = require("../models/TeacherModel");
 
 module.exports = {
+  //create function
   create: function(req,res) {
 
     const teacher = new Teacher({
@@ -30,6 +31,7 @@ module.exports = {
 
     })
   },
+  //delete function
   delete: function (req,res) {
     Teacher.findOneAndRemove({'_id' : req.params.id}, function (err,Teacher){
       if(err) {
@@ -41,6 +43,7 @@ module.exports = {
       }
     })
   },
+  //findbyid function
   findById : function (req, res) {
     Teacher.findOne({_id: req.params.id}).populate({path: 'groupe', populate:{path: 'EtudiantModel'}}).exec( function (err, data) {
       if(err) {
@@ -54,6 +57,7 @@ module.exports = {
     })
 
   },
+  //find all function
   findall : function (req, res) {
     Teacher.find({}, function (err, data) {
       if(err) {
@@ -67,12 +71,14 @@ module.exports = {
     })
 
   },
+  //update function
   update  : function (req, res) {
     GroupeModel.findByIdAndUpdate({_id : req.params.id}, {nom: req.body.nom },{prenom: req.body.prenom },{email: req.body.email },{date_naissance: req.body.date_naissance },{tel: req.body.tel },{salaire: req.body.salaire },{nbre_heure: req.body.nom } ,function (err, groupe) {
       if (err) return next(err);
       res.send('udpated.');
     });
   },
+  //push function
   push : function (req , res) {
     Teacher.updateOne({_id: req.params.id}, {$push: {groupe: req.body.groupe}},
       function (err, data) {
