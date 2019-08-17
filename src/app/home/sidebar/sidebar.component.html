@@ -1,0 +1,177 @@
+<div id="left-sidebar" class="sidebar">
+  <div class="sidebar-scroll">
+    <div class="user-account">
+      <img src="assets/images/user.png" class="rounded-circle user-photo" alt="User Profile Picture">
+      <div class="dropdown">
+        <span>Welcome,</span>
+        <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Admin</strong></a>
+        <ul class="dropdown-menu dropdown-menu-right account">
+          <li><a href="#"><i class="icon-user"></i>My Profile</a></li>
+          <li><a href="#"><i class="icon-envelope-open"></i>Messages</a></li>
+          <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
+          <li class="divider"></li>
+          <li><a href="#"><i class="icon-power"></i>Logout</a></li>
+        </ul>
+      </div>
+      <hr>
+      <ul class="row list-unstyled">
+        <li class="col-4">
+          <small>Admin</small>
+          <h6>14</h6>
+        </li>
+        <li class="col-4">
+          <small>Teacher</small>
+          <h6>13</h6>
+        </li>
+        <li class="col-4">
+          <small>Student</small>
+          <h6>213</h6>
+        </li>
+      </ul>
+    </div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
+      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Chat"><i class="icon-book-open"></i></a></li>
+      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting"><i class="icon-settings"></i></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content p-l-0 p-r-0">
+      <div class="tab-pane active" id="menu">
+        <nav class="sidebar-nav">
+          <ul class="main-menu metismenu">
+            <li class="active"><a href="#"><i class="icon-home"></i><span>Dashboard</span></a></li>
+            <li><a href="#"><i class="icon-list"></i>Taskboard</a></li>
+            <li><a href="#"><i class="icon-home"></i>Inbox App</a></li>
+            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user-follow"></i><span>Teachers</span> </a>
+              <ul>
+                <li><a routerLink="/teacher/showall">All Teachers</a></li>
+                <li><a routerLink="">Add Teacher</a></li>
+                <li><a href="#">Teacher Schedule</a></li>
+              </ul>
+            </li>
+            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user"></i><span>Students</span> </a>
+              <ul>
+                <li><a href="#">All Students</a></li>
+                <li><a href="#">Add Student</a></li>
+                <li><a href="#">Student Profile</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Authentication</span></a>
+              <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#l">Lockscreen</a></li>
+                <li><a href="#">Forgot Password</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="tab-pane p-l-15 p-r-15" id="Chat">
+        <form>
+          <div class="input-group m-b-20">
+            <div class="input-group-prepend">
+              <span class="input-group-text" ><i class="icon-magnifier"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </form>
+        <ul class="right_chat list-unstyled">
+          <li class="online">
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object " src="../assets/images/xs/avatar4.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Dr. Chris Fox</span>
+                  <span class="message">Dentist</span>
+                  <span class="badge badge-outline status"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="online">
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object " src="../assets/images/xs/avatar5.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Dr. Joge Lucky</span>
+                  <span class="message">Gynecologist</span>
+                  <span class="badge badge-outline status"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="offline">
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object " src="../assets/images/xs/avatar2.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Dr. Isabella</span>
+                  <span class="message">CEO, WrapTheme</span>
+                  <span class="badge badge-outline status"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="offline">
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object " src="../assets/images/xs/avatar1.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Dr. Folisise Chosielie</span>
+                  <span class="message">Physical Therapy</span>
+                  <span class="badge badge-outline status"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="online">
+            <a href="javascript:void(0);">
+              <div class="media">
+                <img class="media-object " src="../assets/images/xs/avatar3.jpg" alt="">
+                <div class="media-body">
+                  <span class="name">Dr. Alexander</span>
+                  <span class="message">Audiology</span>
+                  <span class="badge badge-outline status"></span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-pane p-l-15 p-r-15" id="setting">
+        <h6>Choose Skin</h6>
+        <ul class="choose-skin list-unstyled">
+          <li data-theme="purple">
+            <div class="purple"></div>
+            <span>Purple</span>
+          </li>
+          <li data-theme="blue">
+            <div class="blue"></div>
+            <span>Blue</span>
+          </li>
+          <li data-theme="cyan" class="active">
+            <div class="cyan"></div>
+            <span>Cyan</span>
+          </li>
+          <li data-theme="green">
+            <div class="green"></div>
+            <span>Green</span>
+          </li>
+          <li data-theme="orange">
+            <div class="orange"></div>
+            <span>Orange</span>
+          </li>
+          <li data-theme="blush">
+            <div class="blush"></div>
+            <span>Blush</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

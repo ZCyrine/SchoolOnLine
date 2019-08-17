@@ -1,0 +1,83 @@
+<div class="container-fluid">
+
+  <div class="row clearfix">
+    <div class="col-md-12">
+      <div class="card patients-list">
+        <div class="header">
+          <h2>Teachers </h2>
+          <ul class="header-dropdown">
+            <li><a class="tab_btn" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Weekly">W</a></li>
+            <li><a class="tab_btn" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Monthly">M</a></li>
+            <li><a class="tab_btn active" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Yearly">Y</a></li>
+            <li class="dropdown">
+              <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="javascript:void(0);">Action</a></li>
+                <li><a href="javascript:void(0);">Another Action</a></li>
+                <li><a href="javascript:void(0);">Something else</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="body">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs-new2">
+            <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#All">All</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content m-t-10 padding-0">
+            <div class="tab-pane table-responsive active show" id="All">
+              <table class="table m-b-0 table-hover">
+                <thead class="thead-dark">
+                <tr>
+                  <th>Media</th>
+                  <th>NIC</th>
+                  <th>LastName</th>
+                  <th>Name</th>
+                  <th>E-mail</th>
+                  <th>Date-birth</th>
+                  <th>Number</th>
+                  <th>Salary</th>
+                  <th>Number_hours</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let i of ListeUser">
+                  <td><span class="list-icon"><img class="patients-img" src="assets/images/xs/avatar1.jpg" alt=""></span></td>
+                  <td><span >{{i.nic}}</span></td>
+                  <td><span class="list-name">{{i.name}}</span></td>
+                  <td>{{i.lastname}}</td>
+                  <td>{{i.email}}</td>
+                  <td>{{i.datebirth | date: 'dd/MM/yyyy'}}</td>
+                  <td>{{i.phonenumber}}</td>
+                  <td>{{i.salary}}</td>
+                  <td>{{i.nbrehour}}</td>
+
+                  <td><button (click)="remove(i._id)" class="btn btn-danger btn-sm">Delete</button>
+                  </td>
+
+
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
