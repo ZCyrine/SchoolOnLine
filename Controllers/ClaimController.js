@@ -15,7 +15,7 @@ module.exports = {
 
     })
 
-    Claim.save(function (err) {
+    claim.save(function (err) {
       if(err) {
         res.json({'state': 'no', 'msg': 'erreur'+err})
       }

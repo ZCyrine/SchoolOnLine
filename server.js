@@ -5,8 +5,7 @@ var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
 var morgan = require('morgan');
 var cors = require ('cors');
-
-
+const multer = require('multer');
 
 
 //router personne

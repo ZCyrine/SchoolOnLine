@@ -55,7 +55,7 @@ module.exports = {
   delete: function (req, res) {
     Course.findOneAndRemove({'_id': req.params.id}, function (err, Course) {
       if (err) {
-        res.json({'state': 'no', 'msg': 'erreur'})
+        res.json({'state': 'no', 'msg': 'erreur' + err})
       } else {
         res.json({'state': 'ok', 'msg': 'successful removal'})
       }
@@ -65,7 +65,7 @@ module.exports = {
   find: function (req, res) {
     Course.findById({_id: req.params.id}, function (err, data) {
       if (err) {
-        res.json({'state': 'no', 'msg': ' erreur'})
+        res.json({'state': 'no', 'msg': ' erreur' + err})
       } else {
         res.json({'state': 'ok', 'msg': 'Course found', data})
       }
@@ -77,7 +77,7 @@ module.exports = {
   findall: function (req, res) {
     Course.find({}, function (err, data) {
       if (err) {
-        res.json({'state': 'no', 'msg': 'vous avez un erreur'})
+        res.json({'state': 'no', 'msg': 'vous avez un erreur' + err})
       } else {
         res.json({'state': 'ok', 'msg': 'courses found', data})
       }
