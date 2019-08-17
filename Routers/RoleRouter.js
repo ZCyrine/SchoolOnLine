@@ -1,8 +1,8 @@
-const Role = require("../Controllers/RoleController");
+const role = require("../Controllers/RoleController");
 const router = require("express").Router();
-router.post('/create' , Role.create);
-router.get('/find/:id' , Role.find);
-router.get('/findall' , Role.findall);
-router.delete('/delete/:id', Role.delete);
-router.put('/update/:id' , Role.update);
+router.post('/create' , role.create);
+router.get('/find/:id' , role.find);
+router.get('/findall' , role.findall);
+router.delete('/delete/:id', role.delete);
+router.put('/update/:id' , role.update);
 module.exports = router;

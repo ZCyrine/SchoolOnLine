@@ -52,7 +52,7 @@ const personne = mongoose.model('personne', new mongoose.Schema(
     },
     role: {
       type : mongoose.Schema.ObjectId,
-      ref : "Role"
+      ref : "RoleModel"
     },
     gender :{
       type: String,

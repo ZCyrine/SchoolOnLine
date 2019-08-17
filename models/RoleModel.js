@@ -8,5 +8,5 @@ const roleSchema = mongoose.Schema(
     }
   }
 );
-module.exports = mongoose.model("Role",roleSchema);
+module.exports = mongoose.model("RoleModel",roleSchema);
 

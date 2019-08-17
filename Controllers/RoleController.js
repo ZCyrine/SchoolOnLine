@@ -5,12 +5,12 @@ module.exports = {
   //function create
   create: function (req, res) {
 
-    const Role = new Role({
+    const role = new Role({
        name  : req.body.name,
 
     })
 
-    Role.save(function (err) {
+    role.save(function (err) {
       if (err) {
         res.json({'state': 'no', 'msg': 'erreur'})
       } else {

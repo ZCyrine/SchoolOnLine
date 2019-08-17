@@ -75,7 +75,7 @@ app.use (function(req,err,res,next){
     }
     else(err.status===500)
     {
-      res.status(500).json({message:'Internal Server Error' + err});
+      res.status(500).json({message:'Internal Server Error' + err + req});
       next();
     }
 

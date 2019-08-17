@@ -9,21 +9,22 @@ module.exports = {
   //function create
   create: function(req,res) {
 
-    const Personne = new Personne({
+    const personne = new Personne({
       nic : req.body.nic,
       name : req.body.name,
       lastname : req.body.lastname,
       email : req.body.email,
       datebirth: req.body.datebirth,
       phonenumber : req.body.phonenumber,
+      password : req.body.password,
       gender : req.body.gender,
       role: req.body.role
 
     })
      //save function
-    Personne.save(function (err) {
+    personne.save(function (err) {
       if(err) {
-        res.json({'state': 'no', 'msg': ' erreur'})
+        res.json({'state': 'no', 'msg': ' erreur' + err})
       }
 
       else {
