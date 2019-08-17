@@ -5,12 +5,14 @@ module.exports = {
   create: function(req,res) {
 
     const teacher = new Teacher({
-      nom: req.body.nom,
-      prenom : req.body.prenom,
+      nic : req.body.nic,
+      name : req.body.name,
+      lastname : req.body.lastname,
       email : req.body.email,
-      date_naissance : req.body.date_naissance,
-      tel : req.body.tel,
-      password : req.body.password,
+      password: req.body.password,
+      datebirth: req.body.datebirth,
+      phonenumber : req.body.phonenumber,
+      gender : req.body.gender,
       role: req.body.role,
       salary: req.body.salary,
       nbrehour: req.body.nbrehour,
