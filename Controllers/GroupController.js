@@ -3,11 +3,11 @@ module.exports = {
   //function create
   create: function(req,res) {
 
-    const Group = new Group({
+    const group = new Group({
       name: req.body.name
     })
 
-    Group.save(function (err) {
+    group.save(function (err) {
       if(err) {
         res.json({'state': 'no', 'msg': 'erreur'})
       }

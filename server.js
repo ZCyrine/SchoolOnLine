@@ -13,6 +13,8 @@ var cors = require ('cors');
 const PersonneRouter = require('./Routers/PersonneRouter');
 //router role
 const RoleRouter = require('./Routers/RoleRouter');
+//router group
+const GroupRouter = require('./Routers/GroupRouter');
 
 const db = require('./models/db');
 
@@ -54,7 +56,7 @@ app.use(morgan("dev"))
 
 app.use('/personne' , PersonneRouter);
 app.use('/role' , RoleRouter);
-
+app.use('/group' , RoleRouter);
 
 // express doesn't consider not found 404 as an error so we need to handle 404 explicitly
 // handle 404 error

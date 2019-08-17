@@ -8,7 +8,7 @@ module.exports = {
   //function create
   create: function(req,res) {
 
-    const Admin = new Admin({
+    const admin = new Admin({
       nic : req.body.nic,
       name : req.body.name,
       lastname : req.body.lastname,
@@ -20,7 +20,7 @@ module.exports = {
 
     })
     //save function
-    Admin.save(function (err) {
+    admin.save(function (err) {
       if(err) {
         res.json({'state': 'no', 'msg': ' erreur'})
       }
