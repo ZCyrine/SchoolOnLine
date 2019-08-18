@@ -6,3 +6,4 @@ router.put("/update/:id", course.update);
 router.get("/findall", course.findall);
 router.delete("/delete/:id", course.delete);
 module.exports = router;
+//routers
