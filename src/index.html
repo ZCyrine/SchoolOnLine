@@ -1,42 +1,66 @@
-<!doctype html>
-<html lang="en">
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
 <head>
   <meta charset="utf-8">
-  <title>Myapp</title>
-  <base href="/">
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Sufee Admin - HTML5 Admin Template</title>
+  <meta name="description" content="Sufee Admin - HTML5 Admin Template">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="apple-touch-icon" href="apple-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
+  <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
 
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <!-- VENDOR CSS -->
-  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-  <link rel="stylesheet" href="assets/vendor/chartist/css/chartist.min.css">
-  <link rel="stylesheet" href="assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
-  <link rel="stylesheet" href="assets/vendor/toastr/toastr.min.css">
-
-  <!-- MAIN CSS -->
-  <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/color_skins.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
 </head>
+
+
 <body>
   <app-root></app-root>
 
   <!-- Javascript -->
-  <script src="assets/bundles/libscripts.bundle.js"></script>
-  <script src="assets/bundles/vendorscripts.bundle.js"></script>
+  <script src="vendors/jquery/dist/jquery.min.js"></script>
+  <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+  <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.js"></script>
 
-  <script src="assets/bundles/chartist.bundle.js"></script>
-  <script src="assets/bundles/knob.bundle.js"></script> <!-- Jquery Knob-->
-  <script src="assets/bundles/flotscripts.bundle.js"></script> <!-- flot charts Plugin Js -->
-  <script src="assets/vendor/toastr/toastr.js"></script>
-  <script src="assets/vendor/flot-charts/jquery.flot.selection.js"></script>
 
-  <script src="assets/bundles/mainscripts.bundle.js"></script>
-  <script src="assets/js/index.js"></script>
+  <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/widgets.js"></script>
+  <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+  <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+  <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+  <script>
+      (function($) {
+          "use strict";
+
+          jQuery('#vmap').vectorMap({
+              map: 'world_en',
+              backgroundColor: null,
+              color: '#ffffff',
+              hoverOpacity: 0.7,
+              selectedColor: '#1de9b6',
+              enableZoom: true,
+              showTooltip: true,
+              values: sample_data,
+              scaleColors: ['#1de9b6', '#03a9f5'],
+              normalizeFunction: 'polynomial'
+          });
+      })(jQuery);
+  </script>
+
 </body>
+
 </html>

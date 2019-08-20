@@ -7,7 +7,7 @@ const routes: Routes = [{
   path : '' , component : HomeComponent , children : [
     {
       path: 'teacher',
-      loadChildren : './home/teacher/teacher.module#TeacherModule'
+      loadChildren : './home/teachers/teachers.module#TeachersModule'
     }
   ]
 
