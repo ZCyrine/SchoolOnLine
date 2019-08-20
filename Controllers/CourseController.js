@@ -6,11 +6,9 @@ const Course = require("../models/CourseModel");
 const multer = require('multer');
 const fs = require('fs');
 ///create destination of file
-<<<<<<< HEAD
+
 const upload = multer({dest: __dirname + '/uploads/'});
-=======
-const upload = multer({dest: __dirname + '/uploads'});
->>>>>>> 9d02dc2c79401f2c4759e24d58d404d9f8bbdde7
+
 module.exports = {
   //function create
   create: function (req, res) {
@@ -35,13 +33,9 @@ module.exports = {
            title: req.body.title,
             description: req.body.description,
             duration: req.body.duration,
-            date: req.body.duration,
-<<<<<<< HEAD
-            file: req.file.originalname,
-=======
-            file : req.file.originalname
->>>>>>> 9d02dc2c79401f2c4759e24d58d404d9f8bbdde7
+            date: req.body.date,
 
+            file: req.file.originalname,
 
           })
 
