@@ -27,4 +27,5 @@ export class PersonneService {
   updateTeacher(_id, Teacher) {
     return this.http.put(this.baseUrl + '/teacher/update/' + _id, Teacher);
   }
+
 }

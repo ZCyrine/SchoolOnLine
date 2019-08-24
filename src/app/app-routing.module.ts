@@ -4,7 +4,18 @@ import {HomeComponent} from './home/home.component';
 
 
 
-const routes: Routes = [];
+const routes: Routes = [{
+  path : '' ,
+  component : HomeComponent, children :[
+    {path: 'teachers',
+      loadChildren: './home/teacher/teacher.module#TeachersModule'},
+  ]
+
+
+
+
+
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

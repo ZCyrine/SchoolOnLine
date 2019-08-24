@@ -19,8 +19,7 @@ import { LayoutComponent } from './home/layout/layout.component';
     HomeComponent,
     NavbarComponent,
     SidebarComponent,
-    LayoutComponent,
-    
+    LayoutComponent
 
 
 
