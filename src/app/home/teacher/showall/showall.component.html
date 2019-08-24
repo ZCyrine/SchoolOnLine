@@ -42,14 +42,16 @@
                   <th>Salary</th>
                   <th>nbre_hour</th>
                   <th>group</th>
+                  <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let i of ListeTeacher">
-                  <td><span class="list-icon"><img class="patients-img" src="assets/images/xs/avatar1.jpg" alt=""></span></td>
+<!--                  <td><span class="list-icon"><img class="patients-img" src="assets/images/xs/avatar1.jpg" alt=""></span></td>-->
                   <td><span class="list-name">{{i.nic}}</span></td>
                   <td>{{i.name}}</td>
                   <td>{{i.lastname}}</td>
+                  <td>{{i.email}}</td>
                   <td>{{i.datebirth | date: 'dd/MM/yyyy'}}</td>
                   <td>{{i.phonenumber}}</td>
                   <td>{{i.gender}}</td>
@@ -60,7 +62,7 @@
                   <td>
                     <button type="button" data-type="confirm" (click)="deleteteacher(i._id)" class="btn btn-sm btn-outline-danger float-right " title="Delete"><i class="icon-trash"></i></button>
 
-<!--                    <button  (click)="recuperer(i._id,i.nom,i.prenom,i.email,i.tel,i.num_inscrit)" type="button" class="btn btn-sm btn-outline-secondary" title="Edit" data-toggle="modal" data-target="#id"><i class="icon-note"></i></button>-->
+                    <button  (click)="recuperer(i._id,i.nic,i.name,i.lastname,i.email,i.datebirth,i.phonenumber,i.gender,i.salary,i.nbrehour,i.group)" type="button" class="btn btn-sm btn-outline-secondary" title="Edit" data-toggle="modal" data-target="#id"><i class="icon-note"></i></button>
 
                   </td>
 
@@ -81,86 +83,117 @@
 
 
 <!--/////////////////////////////modal-->
-
-<!--<div class="modal fade" id="id" tabindex="-1" role="dialog">-->
-<!--  <div class="modal-dialog" role="document">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h4 class="title" id="defaultModalLabel">Update Student</h4>-->
-<!--      </div>-->
-<!--      <div class="modal-body">-->
-
-
-
-<!--        <div class="col-lg-12 col-md-6 col-sm-6">-->
-
-
-<!--          <div class="body">-->
-<!--            <form [formGroup]="studentedit">-->
-
-<!--              <div class="form-group col-sm-8">-->
-<!--                <label>First Name</label>-->
-<!--                <input type="text"  formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.nom.errors }"  />-->
-<!--                <div *ngIf="submitted && S.nom.errors" class="invalid-feedback">-->
-<!--                  <div *ngIf="S.nom.errors.required">First Name is required</div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="form-group col-sm-8">-->
-<!--                <label>Last Name</label>-->
-<!--                <input type="text" formControlName="prenom" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.prenom.errors }" />-->
-<!--                <div *ngIf="submitted && S.prenom.errors" class="invalid-feedback">-->
-<!--                  <div *ngIf="S.prenom.errors.required">Last Name is required</div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="form-group col-sm-8">-->
-<!--                <label>Email</label>-->
-<!--                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.email.errors }" />-->
-<!--                <div *ngIf="submitted && S.email.errors" class="invalid-feedback">-->
-<!--                  <div *ngIf="S.email.errors.required">Email is required</div>-->
-<!--                  <div *ngIf="S.email.errors.email">Email must be a valid email address</div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="form-group col-sm-8">-->
-<!--                <label>Number</label>-->
-<!--                <input type="text" formControlName="tel" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.tel.errors }" />-->
-<!--                <div *ngIf="submitted && S.tel.errors" class="invalid-feedback">-->
-<!--                  <div *ngIf="S.tel.errors.required">number is required</div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-sm-8">-->
-<!--                <div class="form-group">-->
-<!--                  <label>Level</label>-->
-<!--                  <select class="form-control show-tick" formControlName="niveau_etud"  [ngClass]="{ 'is-invalid': submitted && S.niveau_etud.errors }">-->
-<!--                    <option value="">&#45;&#45;</option>-->
-<!--                    <option>First year</option>-->
-<!--                    <option>Second year</option>-->
-<!--                    <option>Third year</option>-->
-<!--                  </select>-->
-<!--                  <div *ngIf="submitted && S.niveau_etud.errors" class="invalid-feedback">-->
-<!--                    <div *ngIf="S.niveau_etud.errors.required">level is required</div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-
-<!--              <div class="form-group col-sm-8">-->
-<!--                <label>Regestration number</label>-->
-<!--                <input type="text" formControlName="num_inscrit" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.num_inscrit.errors }" />-->
-<!--                <div *ngIf="submitted && S.num_inscrit.errors" class="invalid-feedback">-->
-<!--                  <div *ngIf="S.num_inscrit.errors.required"> Number is required</div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="form-group col-sm">-->
-<!--                <button  type="submit" class="btn btn-primary"  data-dismiss="modal"  (click)="editt()" >Update</button>-->
-<!--                <button type="button" class="btn btn-simple" data-dismiss="modal">CLOSE</button>-->
-
-<!--              </div>-->
-<!--            </form>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+<div class="modal fade" id="id" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="title" id="defaultModalLabel">Update Student</h4>
+      </div>
+      <div class="modal-body">
 
 
 
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+        <div class="col-lg-12 col-md-6 col-sm-6">
+
+
+          <div class="body">
+            <form [formGroup]="Teacheredit"  >
+              <div class="row clearfix">
+                 <div class="form-group col-sm-4">
+                <label>Nic</label>
+                <input type="text"  formControlName="nic" class="form-control" [ngClass]="{ 'is-invalid': submitted && E.nic.errors }"  />
+                <div *ngIf="submitted && E.nic.errors" class="invalid-feedback">
+                  <div *ngIf="E.nic.errors.required">Nic is required</div>
+                </div>
+              </div>
+                 <div class="form-group col-sm-4 ">
+                <label>First Name</label>
+                <input type="text"  formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && E.name.errors }"  />
+                <div *ngIf="submitted && E.name.errors" class="invalid-feedback">
+                  <div *ngIf="E.name.errors.required">First Name is required</div>
+                </div>
+                 </div>
+              </div>
+                <label>Last Name</label>
+                <input type="text" formControlName="lastname" class="form-control" [ngClass]="{ 'is-invalid': submitted && E.lastname.errors }" />
+                <div *ngIf="submitted && E.lastname.errors" class="invalid-feedback">
+                  <div *ngIf="E.lastname.errors.required">Last Name is required</div>
+                </div>
+
+
+
+              <div class="row clearfix">
+              <div class="form-group col-sm-4">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && E.email.errors }" />
+                <div *ngIf="submitted && E.email.errors" class="invalid-feedback">
+                  <div *ngIf="E.email.errors.required">Email is required</div>
+                  <div *ngIf="E.email.errors.email">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group col-sm-4">
+                <label>Date birthr</label>
+                <input type="text" formControlName="datebirth" class="form-control" [ngClass]="{ 'is-invalid': submitted && E.datebirth.errors }" />
+                <div *ngIf="submitted && E.datebirth.errors" class="invalid-feedback">
+                  <div *ngIf="E.datebirth.errors.required">date Birth is required</div>
+                </div>
+              </div>
+              </div>
+
+              <div class="form-group col-sm-8">
+                <label>Phone Number</label>
+                <input type="text" formControlName="phonenumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && E.phonenumber.errors }" />
+                <div *ngIf="submitted && E.phonenumber.errors" class="invalid-feedback">
+                  <div *ngIf="E.phonenumber.errors.required">phone number is required</div>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <label>gender</label>
+                  <select class="form-control show-tick" formControlName="gender"  [ngClass]="{ 'is-invalid': submitted && E.gender.errors }">
+                    <option value="">--</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                  </select>
+                  <div *ngIf="submitted && E.gender.errors" class="invalid-feedback">
+                    <div *ngIf="E.gender.errors.required">level is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-sm-8">
+                <label>salary</label>
+                <input type="text" formControlName="salary" class="form-control" [ngClass]="{ 'is-invalid': submitted && E.salary.errors }" />
+                <div *ngIf="submitted && E.salary.errors" class="invalid-feedback">
+                  <div *ngIf="E.salary"> Number is required</div>
+                </div>
+              </div>
+              <div class="form-group col-sm-8">
+                <label>Number Hours</label>
+                <input type="text" formControlName="nbrehour" class="form-control" [ngClass]="{ 'is-invalid': submitted && E.nbrehour.errors }" />
+                <div *ngIf="submitted && E.nbrehour.errors" class="invalid-feedback">
+                  <div *ngIf="E.nbrehour.errors.required">phone number is required</div>
+                </div>
+              </div>
+              <div class="form-group col-sm-8">
+                <label>Groups</label>
+                <input type="text" formControlName="group" class="form-control" [ngClass]="{ 'is-invalid': submitted && E.group.errors }" />
+                <div *ngIf="submitted && E.group.errors" class="invalid-feedback">
+                  <div *ngIf="E.group.errors.required">Group is required</div>
+                </div>
+              </div>
+              <div class="form-group col-sm">
+                <button  type="submit" class="btn btn-primary"  data-dismiss="modal"  (click)="updateteacher()" >Update</button>
+                <button type="button" class="btn btn-simple" data-dismiss="modal">CLOSE</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+

@@ -3,6 +3,7 @@ import {PersonneService} from '../../../service/personne.service';
 import {__importDefault} from 'tslib';
 import Swal from 'sweetalert2';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {group} from '@angular/animations';
 
 @Component({
   selector: 'app-showall',
@@ -95,7 +96,8 @@ export class ShowallComponent implements OnInit {
 
     })
   }
-  recuperer(_id,nic,name,lastname,email,datebirth,phonenumber,password,gender,salary,nbrehour,group){
+
+  recuperer(_id, nic, name, lastname, email, datebirth, phonenumber, gender, salary,nbrehour,group){
     console.log('updateeeeeeeeeeeeee')
     this._id= _id;
 
@@ -107,7 +109,6 @@ export class ShowallComponent implements OnInit {
     this.Teacheredit.get(email).setValue(email);
     this.Teacheredit.get(datebirth).setValue(datebirth);
     this.Teacheredit.get(phonenumber).setValue(phonenumber);
-    this.Teacheredit.get(password).setValue(password);
     this.Teacheredit.get(gender).setValue(gender);
     this.Teacheredit.get(salary).setValue(salary);
     this.Teacheredit.get(nbrehour).setValue(nbrehour);
