@@ -7,9 +7,9 @@ const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 //require multer for uplad files
 const multer = require('multer');
-//
+//require morgan HTTP request logger middleware for node.js
 var morgan = require('morgan');
-
+//
 const cors = require('cors');
 
 
