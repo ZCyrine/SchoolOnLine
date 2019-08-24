@@ -12,7 +12,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ShowallComponent implements OnInit {
 
   title : 'teacher';
-  ListeUser;
+  ListeTeacher;
   Teacheredit : FormGroup
   submitted = false;
   _id;
@@ -22,12 +22,18 @@ export class ShowallComponent implements OnInit {
   ngOnInit() {
     this.allteacher();
     this.Teacheredit=this.formBuilder.group({
-      nom: ['', Validators.required],
-      prenom: ['', Validators.required],
+       nic: ['', Validators.required],
+      name: ['', Validators.required],
+      lastname: ['', Validators.required],
       email: ['', Validators.required],
-      tel: ['', Validators.required],
-      salaire: ['', Validators.required],
-      nbre_heure: ['', Validators.required],
+      datebirth: ['', Validators.required],
+      phonenumber: ['', Validators.required],
+      password: ['', Validators.required],
+      gender: ['', Validators.required],
+      salary: ['', Validators.required],
+      nbrehour: ['', Validators.required],
+      group: ['', Validators.required],
+
     });
 
 
@@ -36,12 +42,12 @@ export class ShowallComponent implements OnInit {
   allteacher() {
     this.personneService.AllTeacher().subscribe(res=> {
 
-        this.ListeUser = res;
+        this.ListeTeacher = res;
         console.log(res);
       }
     )
   }
-  remove(id) {
+  deleteteacher(id) {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -64,7 +70,7 @@ export class ShowallComponent implements OnInit {
 
     return this.Teacheredit.controls;
   }
-  edit() {
+  updateteacher() {
 
 
 
@@ -89,18 +95,23 @@ export class ShowallComponent implements OnInit {
 
     })
   }
-  recuperer(_id, nom, prenom, email, tel, salaire, nbre_heure){
+  recuperer(_id,nic,name,lastname,email,datebirth,phonenumber,password,gender,salary,nbrehour,group){
     console.log('updateeeeeeeeeeeeee')
     this._id= _id;
 
     console.log(this._id)
 
-    this.Teacheredit.get("nom").setValue(nom);
-    this.Teacheredit.get("prenom").setValue(prenom);
-    this.Teacheredit.get("email").setValue(email);
-    this.Teacheredit.get("tel").setValue(tel);
-    this.Teacheredit.get("salaire").setValue(salaire);
-    this.Teacheredit.get("nbre_heure").setValue(nbre_heure);
+    this.Teacheredit.get("nic").setValue(nic);
+    this.Teacheredit.get("name").setValue(name);
+    this.Teacheredit.get(lastname).setValue(lastname);
+    this.Teacheredit.get(email).setValue(email);
+    this.Teacheredit.get(datebirth).setValue(datebirth);
+    this.Teacheredit.get(phonenumber).setValue(phonenumber);
+    this.Teacheredit.get(password).setValue(password);
+    this.Teacheredit.get(gender).setValue(gender);
+    this.Teacheredit.get(salary).setValue(salary);
+    this.Teacheredit.get(nbrehour).setValue(nbrehour);
+    this.Teacheredit.get(group).setValue(group);
 
   }
 

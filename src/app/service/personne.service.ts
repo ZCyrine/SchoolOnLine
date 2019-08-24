@@ -13,9 +13,8 @@ export class PersonneService {
 
 
   AllTeacher() {
-    return this.http.get(this.baseUrl + '/teacher/findAll');
+    return this.http.get(this.baseUrl + '/teacher/findall');
   }
-  // tslint:disable-next-line:variable-name
   DeleteTeacher(_id) {
     return this.http.delete(this.baseUrl + '/teacher/delete/' + _id);
   }

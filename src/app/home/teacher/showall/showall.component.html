@@ -1,1 +1,166 @@
-<p>showall works!</p>
+<div class="container-fluid">
+
+  <div class="row clearfix">
+    <div class="col-md-12">
+      <div class="card patients-list">
+        <div class="header">
+          <h2>Teachers </h2>
+          <ul class="header-dropdown">
+            <li><a class="tab_btn" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Weekly">W</a></li>
+            <li><a class="tab_btn" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Monthly">M</a></li>
+            <li><a class="tab_btn active" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Yearly">Y</a></li>
+            <li class="dropdown">
+              <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="javascript:void(0);">Action</a></li>
+                <li><a href="javascript:void(0);">Another Action</a></li>
+                <li><a href="javascript:void(0);">Something else</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="body">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs-new2">
+            <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#All">All</a></li>
+
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content m-t-10 padding-0">
+            <div class="tab-pane table-responsive active show" id="All">
+              <table class="table m-b-0 table-hover">
+                <thead class="thead-dark">
+                <tr>
+                  <th>Nic</th>
+                  <th>Name</th>
+                  <th>Lastname</th>
+                  <th>E-mail</th>
+                  <th>Date-birth</th>
+                  <th>PhoneNumber</th>
+                  <th>gender</th>
+                  <th>Salary</th>
+                  <th>nbre_hour</th>
+                  <th>group</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let i of ListeTeacher">
+                  <td><span class="list-icon"><img class="patients-img" src="assets/images/xs/avatar1.jpg" alt=""></span></td>
+                  <td><span class="list-name">{{i.nic}}</span></td>
+                  <td>{{i.name}}</td>
+                  <td>{{i.lastname}}</td>
+                  <td>{{i.datebirth | date: 'dd/MM/yyyy'}}</td>
+                  <td>{{i.phonenumber}}</td>
+                  <td>{{i.gender}}</td>
+                  <td>{{i.salary}}</td>
+                  <td>{{i.nbrehour}}</td>
+                  <td>{{i.group}}</td>
+
+                  <td>
+                    <button type="button" data-type="confirm" (click)="deleteteacher(i._id)" class="btn btn-sm btn-outline-danger float-right " title="Delete"><i class="icon-trash"></i></button>
+
+<!--                    <button  (click)="recuperer(i._id,i.nom,i.prenom,i.email,i.tel,i.num_inscrit)" type="button" class="btn btn-sm btn-outline-secondary" title="Edit" data-toggle="modal" data-target="#id"><i class="icon-note"></i></button>-->
+
+                  </td>
+
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--/////////////////////////////modal-->
+
+<!--<div class="modal fade" id="id" tabindex="-1" role="dialog">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h4 class="title" id="defaultModalLabel">Update Student</h4>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+
+
+
+<!--        <div class="col-lg-12 col-md-6 col-sm-6">-->
+
+
+<!--          <div class="body">-->
+<!--            <form [formGroup]="studentedit">-->
+
+<!--              <div class="form-group col-sm-8">-->
+<!--                <label>First Name</label>-->
+<!--                <input type="text"  formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.nom.errors }"  />-->
+<!--                <div *ngIf="submitted && S.nom.errors" class="invalid-feedback">-->
+<!--                  <div *ngIf="S.nom.errors.required">First Name is required</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="form-group col-sm-8">-->
+<!--                <label>Last Name</label>-->
+<!--                <input type="text" formControlName="prenom" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.prenom.errors }" />-->
+<!--                <div *ngIf="submitted && S.prenom.errors" class="invalid-feedback">-->
+<!--                  <div *ngIf="S.prenom.errors.required">Last Name is required</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="form-group col-sm-8">-->
+<!--                <label>Email</label>-->
+<!--                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.email.errors }" />-->
+<!--                <div *ngIf="submitted && S.email.errors" class="invalid-feedback">-->
+<!--                  <div *ngIf="S.email.errors.required">Email is required</div>-->
+<!--                  <div *ngIf="S.email.errors.email">Email must be a valid email address</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="form-group col-sm-8">-->
+<!--                <label>Number</label>-->
+<!--                <input type="text" formControlName="tel" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.tel.errors }" />-->
+<!--                <div *ngIf="submitted && S.tel.errors" class="invalid-feedback">-->
+<!--                  <div *ngIf="S.tel.errors.required">number is required</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-sm-8">-->
+<!--                <div class="form-group">-->
+<!--                  <label>Level</label>-->
+<!--                  <select class="form-control show-tick" formControlName="niveau_etud"  [ngClass]="{ 'is-invalid': submitted && S.niveau_etud.errors }">-->
+<!--                    <option value="">&#45;&#45;</option>-->
+<!--                    <option>First year</option>-->
+<!--                    <option>Second year</option>-->
+<!--                    <option>Third year</option>-->
+<!--                  </select>-->
+<!--                  <div *ngIf="submitted && S.niveau_etud.errors" class="invalid-feedback">-->
+<!--                    <div *ngIf="S.niveau_etud.errors.required">level is required</div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <div class="form-group col-sm-8">-->
+<!--                <label>Regestration number</label>-->
+<!--                <input type="text" formControlName="num_inscrit" class="form-control" [ngClass]="{ 'is-invalid': submitted && S.num_inscrit.errors }" />-->
+<!--                <div *ngIf="submitted && S.num_inscrit.errors" class="invalid-feedback">-->
+<!--                  <div *ngIf="S.num_inscrit.errors.required"> Number is required</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="form-group col-sm">-->
+<!--                <button  type="submit" class="btn btn-primary"  data-dismiss="modal"  (click)="editt()" >Update</button>-->
+<!--                <button type="button" class="btn btn-simple" data-dismiss="modal">CLOSE</button>-->
+
+<!--              </div>-->
+<!--            </form>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
