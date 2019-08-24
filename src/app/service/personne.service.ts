@@ -12,11 +12,19 @@ export class PersonneService {
   constructor(private http: HttpClient ) { }
 
 
-  getAll() {
+  AllTeacher() {
     return this.http.get(this.baseUrl + '/teacher/findAll');
   }
   // tslint:disable-next-line:variable-name
-  getDelete(_id) {
+  DeleteTeacher(_id) {
     return this.http.delete(this.baseUrl + '/teacher/delete/' + _id);
+  }
+
+  AddTeacher(Teacher) {
+    return this.http.post(this.baseUrl + '/teacher/create' , Teacher);
+  }
+  // tslint:disable-next-line:variable-name
+  updateTeacher(_id, Teacher) {
+    return this.http.put(this.baseUrl + '/teacher/update/' + _id, Teacher);
   }
 }

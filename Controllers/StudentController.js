@@ -2,6 +2,7 @@
 const Student= require("../models/StudentModel");
 
 module.exports = {
+  //create function
   create: function(req,res) {
 
     const student= new Student({
@@ -18,7 +19,6 @@ module.exports = {
       registnumber: req.body.registnumber
 
     })
-
     student.save(function (err) {
       if(err) {
         res.json({'state': 'no', 'msg': 'erreur'+err})
@@ -29,8 +29,8 @@ module.exports = {
       }
 
 
-    })
-  },
+    })},
+  //delete function
   delete: function (req,res) {
     Student.findOneAndRemove({'_id' : req.params.id}, function (err,Student){
       if(err) {
@@ -42,6 +42,7 @@ module.exports = {
       }
     })
   },
+  //find function
   find : function (req, res) {
     Student.findById({_id: req.params.id}, function (err, data) {
       if(err) {
@@ -55,6 +56,7 @@ module.exports = {
     })
 
   },
+  //findall function
   findall : function (req, res) {
     Student.find({}, function (err, data) {
       if(err) {
@@ -68,9 +70,4 @@ module.exports = {
     })
 
   },
-
-
-
-
-
 }

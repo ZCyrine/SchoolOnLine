@@ -2,7 +2,6 @@
 const Claim = require("../models/ClaimModel");
 //import nodemailer
 var nodemailer = require('nodemailer');
-
 module.exports = {
   //function create
   create: function(req,res) {
